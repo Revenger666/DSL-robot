@@ -1,0 +1,45 @@
+Set apple 10
+Set banana 5
+Set name 张
+Entry hello
+
+Step hello
+Speak 您好!$name$先生/女生，欢迎使用客服机器人，您可以输入1.查询 查询价格 2.投诉 进行投诉 3.退出 结束对话 
+Listen 15
+Branch 3 查询 chaxun 投诉 tousu 退出 exit
+Default nofind
+Silence chaoshi
+End
+
+Step chaxun
+Speak 苹果的价格为$apple$元，香蕉的价格为$banana$元。
+Default hello
+End
+
+Step tousu
+Speak 抱歉，机器人正在开发中，服务未能令您满意，请留下您宝贵的意见！
+Listen 100
+Branch 0
+Default save
+Silence chaoshi
+End
+
+Step save
+Speak 已收到，感谢您的反馈！
+Default hello
+End
+
+Step nofind
+Speak 抱歉，无法识别您的输入。
+Default hello
+End
+
+Step chaoshi
+Speak 长时间等待未回应，已自动退出，感谢您的使用！
+Default exit
+End
+
+Step exit
+Speak 已成功退出。
+Exit
+End
